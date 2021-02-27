@@ -36,12 +36,25 @@ module.exports = {
             }
           }
         ]
-      }
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          "style-loader",
+          // Translates CSS into CommonJS
+          "css-loader",
+          // Compiles Sass to CSS
+          "sass-loader",
+        ],
+      },
     ]
   },
   resolve: {
     alias: {
-      Image: path.resolve(__dirname, 'assets/img')
+      '@home': path.resolve(__dirname, 'src/home'),
+      '@dashboard': path.resolve(__dirname, 'src/dashboard'),
+      '@login': path.resolve(__dirname, 'src/login')
     }
   },
   plugins: [
@@ -67,3 +80,17 @@ module.exports = {
     },
   }
 }
+
+
+// Used when manually downloading fonts
+// {
+//   test: /\.(woff|woff2|eot|ttf|svg)$/,
+//   use: [
+//     {
+//       loader: 'file-loader',
+//       options: {
+//         name: 'file?name=fonts/[name].[ext]'
+//       }
+//     }
+//   ]
+// },

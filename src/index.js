@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import InnerImage from './components/Inner-image';
-import CountExample from './components/count-example';
+import { Router } from "@reach/router";
+
+import Home from '@home/components/Home.jsx';
+import './styles/main.scss';
 
 function Root() {
   return (
     <div>
-      {/* <InnerImage /> */}
-      <CountExample />
+      <Router>
+        <Home path='/' />
+      </Router>
     </div>
   );
 }
